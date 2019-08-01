@@ -1,0 +1,22 @@
+Following are the assumptions taken in to account
+1)It is a one time load
+2)Data at the source urls is correct as per the mentioned specifications
+3)No business rule validations are required
+4)It is a batch system requirement
+5)Since no Business KPI is provided only year range has been picked up as partitioning key
+6)Unit testing is being take care of separately
+7)The is no data which falls under PI compliance.
+8)There is no logging requirement.
+9)There are no specific audit requirement
+10)No exception handling, as exception handling scenarios are required.
+
+
+
+----------------------
+For Business User access following points can be taken into consideration
+1)First we need to define the semantic layer serving the Business users KPI's
+2)Based on query performance acceptance ,Impala or Spark SQL,Hive can serve as semantic layer
+3)Regarding user access to the semantic layer we can have multiple approaches
+  a) We can authorize users to directly use semantic layer via Impala or Spark SQl based on role
+  b) We can avoid direct access to semantic layer and can wrap Users KPI's under Api's (Flask)based on role
+  c)Self service reporting layer can be created on BI tools like Tableau, PowerBI etc.. 
